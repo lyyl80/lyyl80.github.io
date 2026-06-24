@@ -223,6 +223,33 @@ h4 {
   transition: background-color var(--transition-color), border-color var(--transition-color), transform var(--transition-transform);
 }
 
+.sidebar-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #1C1917;
+  color: #D4A574;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-bottom: var(--space-5);
+  flex-shrink: 0;
+  transition: transform var(--transition-transform);
+}
+
+.sidebar-logo:hover {
+  transform: scale(1.05);
+}
+
+[data-theme="dark"] .sidebar-logo {
+  background-color: #000000;
+  color: #D4A574;
+}
+
 /* ----- Profile Header ----- */
 .profile-header {
   padding: var(--space-7) var(--space-7) var(--space-6);
@@ -344,21 +371,9 @@ h4 {
   transition: background-color var(--transition-color), color var(--transition-color);
 }
 
-.sidebar-nav a svg {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  opacity: 0.7;
-  transition: opacity var(--transition-color);
-}
-
 .sidebar-nav a:hover {
   background-color: var(--color-bg);
   color: var(--color-fg);
-}
-
-.sidebar-nav a:hover svg {
-  opacity: 1;
 }
 
 .sidebar-nav a.active {
