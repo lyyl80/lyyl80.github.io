@@ -73,15 +73,12 @@
   navLinks.forEach(function(link) {
     link.classList.remove('active');
     var href = link.getAttribute('href');
-    if (href === currentPath || (href !== '/' && currentPath.startsWith(href))) {
+    if (href === currentPath) {
+      link.classList.add('active');
+    } else if (href !== '/' && currentPath.startsWith(href)) {
       link.classList.add('active');
     }
   });
-  // Default: if on homepage, activate first link
-  if (currentPath === '/' || currentPath === '') {
-    var firstLink = document.querySelector('.sidebar-nav a');
-    if (firstLink) firstLink.classList.add('active');
-  }
 
   // ===== Calendar Widget =====
   var calDays = document.getElementById('cal-days');
