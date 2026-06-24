@@ -54,6 +54,20 @@
       </div>
     </div>
 
+    <!-- Plans Widget -->
+    {{ $plans := site.GetPage "/plans" }}
+    {{ with $plans }}
+    <div class="dash-card dash-plans">
+      <div class="dash-card-header">
+        <h3>计划</h3>
+        <a href="/plans/" class="dash-link">查看全部 →</a>
+      </div>
+      <div class="dash-plans-content">
+        {{ .Content }}
+      </div>
+    </div>
+    {{ end }}
+
   </div>
 </section>
 

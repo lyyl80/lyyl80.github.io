@@ -141,6 +141,17 @@
   </article>
 </section>
 
+{{ else if eq .Section "plans" }}
+<!-- ===== PLANS PAGE ===== -->
+<section class="content-section view-active view-enter">
+  <div class="section-title-row">
+    <h2>计划</h2>
+  </div>
+  <div class="plans-content">
+    {{ .Content }}
+  </div>
+</section>
+
 {{ else }}
 <!-- ===== GENERIC LIST ===== -->
 <section class="content-section view-active view-enter">

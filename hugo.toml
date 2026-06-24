@@ -61,3 +61,9 @@ title = "lyyl80"
     name = "关于"
     url = "/about/"
     weight = 6
+
+  [[menu.main]]
+    identifier = "plans"
+    name = "计划"
+    url = "/plans/"
+    weight = 7
