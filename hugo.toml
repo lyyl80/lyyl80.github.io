@@ -57,13 +57,13 @@ title = "lyyl80"
     weight = 5
 
   [[menu.main]]
-    identifier = "about"
-    name = "关于"
-    url = "/about/"
-    weight = 6
-
-  [[menu.main]]
     identifier = "plans"
     name = "计划"
     url = "/plans/"
+    weight = 6
+
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
     weight = 7
