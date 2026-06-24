@@ -1054,6 +1054,12 @@ h4 {
   box-shadow: 0 2px 8px var(--color-shadow);
 }
 
+.post-nav a svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 .post-nav a:last-child {
   text-align: right;
 }
@@ -1133,14 +1139,14 @@ h4 {
   transition: border-color var(--transition-color);
 }
 
-.footer-social {
+.footer-icons {
   display: flex;
   align-items: center;
   gap: var(--space-3);
   margin-bottom: var(--space-6);
 }
 
-.footer-social .icon-btn {
+.footer-icon-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1153,13 +1159,36 @@ h4 {
   transition: background-color var(--transition-color), border-color var(--transition-color), color var(--transition-color), transform var(--transition-transform);
 }
 
-.footer-social .icon-btn:hover {
+.footer-icon-btn:hover {
   color: var(--color-primary);
   border-color: var(--color-border);
   transform: translateY(-1px);
 }
 
-.footer-social .icon-btn svg {
+.footer-icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.footer-bottom a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-fg-muted);
+  transition: color var(--transition-color);
+}
+
+.footer-bottom a:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom a svg {
   width: 16px;
   height: 16px;
 }

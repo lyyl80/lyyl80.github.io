@@ -10,7 +10,7 @@ showToc: false
 ## 关于这个博客
 
 - 使用 [Hugo](https://gohugo.io/) 构建
-- 主题：[PaperMod](https://github.com/adityatelange/hugo-PaperMod)
+- 自定义模板设计
 - 部署于 GitHub Pages
 
 ## 联系方式

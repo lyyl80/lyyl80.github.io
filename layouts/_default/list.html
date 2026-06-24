@@ -103,6 +103,19 @@
   </div>
 </section>
 
+{{ else if eq .Section "about" }}
+<!-- ===== ABOUT PAGE ===== -->
+<section class="content-section view-active view-enter">
+  <article class="post-single">
+    <header class="post-header">
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+  </article>
+</section>
+
 {{ else }}
 <!-- ===== GENERIC LIST ===== -->
 <section class="content-section view-active view-enter">

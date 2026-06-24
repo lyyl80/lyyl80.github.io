@@ -20,7 +20,7 @@
     {{ .Content }}
   </div>
 
-  {{ if or .PrevInSection .NextInSection }}
+  {{ if and (eq .Section "posts") (or .PrevInSection .NextInSection) }}
   <nav class="post-nav">
     {{ with .PrevInSection }}
     <a href="{{ .Permalink }}" class="post-nav-prev">
