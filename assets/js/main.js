@@ -5,15 +5,20 @@
   var html = document.documentElement;
   var themeBtn = document.querySelector('.theme-toggle');
 
-  // Check system preference
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // Restore saved theme, or detect system preference
+  var savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    html.setAttribute('data-theme', savedTheme);
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     html.setAttribute('data-theme', 'dark');
   }
 
   if (themeBtn) {
     themeBtn.addEventListener('click', function() {
       var current = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+      var next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
     });
   }
 
