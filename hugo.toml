@@ -27,6 +27,12 @@ title = "lyyl80"
 
 [menu]
   [[menu.main]]
+    identifier = "home"
+    name = "主页"
+    url = "/"
+    weight = 0
+
+  [[menu.main]]
     identifier = "posts"
     name = "文章"
     url = "/posts/"
