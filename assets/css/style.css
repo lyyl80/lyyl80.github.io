@@ -343,7 +343,7 @@ h4 {
   transition: background-color var(--transition-color), color var(--transition-color);
 }
 
-.sidebar-nav a .nav-icon {
+.sidebar-nav a svg {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
@@ -356,7 +356,7 @@ h4 {
   color: var(--color-fg);
 }
 
-.sidebar-nav a:hover .nav-icon {
+.sidebar-nav a:hover svg {
   opacity: 1;
 }
 
@@ -366,7 +366,7 @@ h4 {
   font-weight: 600;
 }
 
-.sidebar-nav a.active .nav-icon {
+.sidebar-nav a.active svg {
   opacity: 1;
   color: var(--color-primary);
 }
@@ -547,16 +547,16 @@ h4 {
   border-color: var(--color-border);
 }
 
-.article-card-body {
+.article-body {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   min-width: 0;
 }
 
-.article-card .tag {
-  display: inline-flex;
-  align-items: center;
+.article-tag {
+  display: inline-block;
+  align-self: flex-start;
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -565,7 +565,7 @@ h4 {
   transition: color var(--transition-color);
 }
 
-.article-card .card-title {
+.article-title {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 600;
@@ -574,20 +574,11 @@ h4 {
   transition: color var(--transition-color);
 }
 
-.article-card:hover .card-title {
+.article-card:hover .article-title {
   color: var(--color-primary);
 }
 
-.article-card .card-title a {
-  color: inherit;
-  transition: color var(--transition-color);
-}
-
-.article-card:hover .card-title a {
-  color: var(--color-primary);
-}
-
-.article-card .excerpt {
+.article-excerpt {
   font-size: 0.875rem;
   color: var(--color-fg-secondary);
   line-height: 1.65;
@@ -598,7 +589,7 @@ h4 {
   transition: color var(--transition-color);
 }
 
-.article-card .meta {
+.article-meta {
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -609,22 +600,19 @@ h4 {
   transition: color var(--transition-color);
 }
 
-.article-card .meta .separator {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background-color: var(--color-border);
-  flex-shrink: 0;
-  transition: background-color var(--transition-color);
+.article-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.article-card .meta .category {
-  color: var(--color-accent);
-  font-weight: 500;
-  transition: color var(--transition-color);
+.article-meta svg {
+  width: 13px;
+  height: 13px;
+  opacity: 0.6;
 }
 
-.article-card-thumb {
+.article-thumb {
   width: 200px;
   height: 140px;
   border-radius: var(--seed-radius);
@@ -634,20 +622,13 @@ h4 {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background-color var(--transition-color);
+  border: 1px solid var(--color-border-subtle);
+  transition: background-color var(--transition-color), border-color var(--transition-color);
 }
 
-.article-card-thumb img {
+.article-thumb svg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.article-card-thumb svg {
-  width: 48px;
-  height: 48px;
-  color: var(--color-border);
-  transition: color var(--transition-color);
 }
 
 /* ----- Archives Timeline ----- */
@@ -1334,7 +1315,7 @@ h4 {
     grid-template-columns: 1fr 160px;
   }
 
-  .article-card-thumb {
+  .article-thumb {
     width: 160px;
     height: 112px;
   }
@@ -1364,7 +1345,7 @@ h4 {
     grid-template-columns: 1fr;
   }
 
-  .article-card-thumb {
+  .article-thumb {
     width: 100%;
     height: 180px;
     order: -1;
