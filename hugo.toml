@@ -30,34 +30,34 @@ title = "lyyl80"
     identifier = "home"
     name = "主页"
     url = "/"
-    weight = 0
+    weight = 1
 
   [[menu.main]]
     identifier = "posts"
     name = "文章"
     url = "/posts/"
-    weight = 1
+    weight = 2
 
   [[menu.main]]
     identifier = "archives"
     name = "归档"
     url = "/archives/"
-    weight = 2
+    weight = 3
 
   [[menu.main]]
     identifier = "tags"
     name = "标签"
     url = "/tags/"
-    weight = 3
+    weight = 4
 
   [[menu.main]]
     identifier = "search"
     name = "搜索"
     url = "/search/"
-    weight = 4
+    weight = 5
 
   [[menu.main]]
     identifier = "about"
     name = "关于"
     url = "/about/"
-    weight = 5
+    weight = 6
