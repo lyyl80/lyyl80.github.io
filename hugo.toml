@@ -23,7 +23,7 @@ title = "lyyl80"
     guessSyntax = true
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "JSON"]
 
 [menu]
   [[menu.main]]

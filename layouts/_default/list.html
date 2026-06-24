@@ -103,6 +103,31 @@
   </div>
 </section>
 
+{{ else if eq .Section "search" }}
+<!-- ===== SEARCH PAGE ===== -->
+<section class="content-section view-active view-enter">
+  <div class="section-title-row">
+    <h2>搜索</h2>
+  </div>
+
+  <div class="search-container">
+    <div class="search-input-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="search-input" placeholder="输入关键词搜索文章…" autocomplete="off" autofocus>
+    </div>
+
+    <div class="search-hints">
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      <span class="hint" data-tag="{{ $name }}">{{ $name }}</span>
+      {{ end }}
+    </div>
+
+    <div id="search-results" class="search-results"></div>
+  </div>
+</section>
+
 {{ else if eq .Section "about" }}
 <!-- ===== ABOUT PAGE ===== -->
 <section class="content-section view-active view-enter">
