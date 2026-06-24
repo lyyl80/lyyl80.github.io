@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" data-theme="light">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body>
+
+<button class="mobile-toggle" aria-label="Toggle sidebar" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="sidebar-overlay" aria-hidden="true"></div>
+
+{{- partial "sidebar.html" . -}}
+
+<main class="main-content" role="main">
+
+  {{- partial "profile-header.html" . -}}
+
+  <div class="content-body">
+    {{- block "main" . }}{{- end }}
+  </div>
+
+  {{- partial "footer.html" . -}}
+
+</main>
+
+{{ $js := resources.Get "js/main.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
+
+</body>
+</html>

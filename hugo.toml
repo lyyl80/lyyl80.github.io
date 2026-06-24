@@ -1,44 +1,21 @@
 baseURL = "https://lyyl80.github.io/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
-title = "我的博客"
+title = "lyyl80"
 theme = "PaperMod"
 [pagination]
   pagerSize = 10
 
 [params]
   env = "production"
-  description = "温暖米色调的个人博客，记录技术与思考"
+  description = "写代码，也写生活。"
   author = "lyyl80"
-  defaultTheme = "light"
-  ShowReadingTime = true
-  ShowShareButtons = false
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = false
-  ShowCodeCopyButtons = true
-  ShowToc = true
-  TocOpen = false
-  comments = false
-
-  # Profile Mode — 首页展示个人头像+简介
-  [params.profileMode]
-    enabled = true
-    title = "Hi, I'm lyyl80"
-    subtitle = "写代码，也写生活。记录技术笔记与日常思考。"
-    imageUrl = "/avatar.png"
-    imageTitle = "avatar"
-
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/lyyl80"
-
-  [[params.socialIcons]]
-    name = "email"
-    url = "mailto:your@email.com"
+  tagline = "写代码，也写生活。"
+  github = "lyyl80"
+  email = ""
 
 [params.assets]
   favicon = "/favicon.ico"
-  disableHLJS = true
 
 [markup]
   [markup.highlight]

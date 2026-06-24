@@ -1,0 +1,125 @@
+{{ define "main" }}
+
+{{ if eq .Section "archives" }}
+<!-- ===== ARCHIVES TIMELINE ===== -->
+<section class="content-section view-active view-enter">
+  <div class="section-title-row">
+    <h2>归档</h2>
+    <span class="section-count">共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇</span>
+  </div>
+
+  <div class="archives-timeline">
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ range ($posts.GroupByDate "2006") }}
+    <div class="archive-group">
+      <div class="archive-year">{{ .Key }}</div>
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" class="archive-item">
+        <span class="archive-date">{{ .Date.Format "01-02" }}</span>
+        <span class="archive-title">{{ .Title }}</span>
+        {{ with .Params.tags }}<span class="archive-tag-inline">{{ index . 0 }}</span>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ else if eq .Section "tags" }}
+<!-- ===== TAGS ===== -->
+<section class="content-section view-active view-enter">
+  <div class="section-title-row">
+    <h2>{{ if .Data.Term }}{{ .Data.Term }}{{ else }}标签{{ end }}</h2>
+    <span class="section-count">
+      {{ if .Data.Term }}{{ len .Pages }} 篇{{ else }}{{ len .Site.Taxonomies.tags }} 个标签{{ end }}
+    </span>
+  </div>
+
+  {{ if .Data.Term }}
+  <!-- Single tag page: show articles -->
+  <div class="article-list">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="article-card">
+      <div class="article-body">
+        <h3 class="article-title">{{ .Title }}</h3>
+        <p class="article-excerpt">{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
+        <div class="article-meta">
+          <span>{{ .Date.Format "2006-01-02" }}</span>
+          <span>{{ .ReadingTime }} min</span>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <!-- Tags index: show all tags -->
+  <div class="tags-cloud">
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    <a href="/tags/{{ $name | urlize }}" class="tag-pill">{{ $name }} <span class="tag-count">{{ len $taxonomy }}</span></a>
+    {{ end }}
+  </div>
+
+  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+  <div class="tag-group">
+    <div class="tag-group-header">
+      <span class="tag-group-label">{{ $name }}</span>
+      <span class="tag-group-count">{{ len $taxonomy }} 篇</span>
+    </div>
+    <div class="tag-article-list">
+      {{ range $taxonomy.Pages }}
+      <a href="{{ .Permalink }}" class="tag-article-item">
+        <span class="tag-article-title">{{ .Title }}</span>
+        <span class="tag-article-date">{{ .Date.Format "2006-01-02" }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+  {{ end }}
+</section>
+
+{{ else if eq .Section "posts" }}
+<!-- ===== POSTS LIST ===== -->
+<section class="content-section view-active view-enter">
+  <div class="section-title-row">
+    <h2>文章</h2>
+    <span class="section-count">共 {{ len .Pages }} 篇</span>
+  </div>
+
+  <div class="article-list">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="article-card">
+      <div class="article-body">
+        {{ with .Params.tags }}<span class="article-tag">{{ index . 0 }}</span>{{ end }}
+        <h3 class="article-title">{{ .Title }}</h3>
+        <p class="article-excerpt">{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
+        <div class="article-meta">
+          <span>{{ .Date.Format "2006-01-02" }}</span>
+          <span>{{ .ReadingTime }} min</span>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+
+{{ else }}
+<!-- ===== GENERIC LIST ===== -->
+<section class="content-section view-active view-enter">
+  <div class="section-title-row">
+    <h2>{{ .Title }}</h2>
+  </div>
+  <div class="article-list">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="article-card">
+      <div class="article-body">
+        <h3 class="article-title">{{ .Title }}</h3>
+        <p class="article-excerpt">{{ .Summary | plainify | truncate 120 }}</p>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

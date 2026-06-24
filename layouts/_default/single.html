@@ -1,0 +1,41 @@
+{{ define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+      <span class="meta-sep">·</span>
+      <span>{{ .ReadingTime }} 分钟阅读</span>
+      {{ with .Params.tags }}
+      <span class="meta-sep">·</span>
+      <span class="post-tags">
+        {{ range . }}<a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ end }}
+      </span>
+      {{ end }}
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ if or .PrevInSection .NextInSection }}
+  <nav class="post-nav">
+    {{ with .PrevInSection }}
+    <a href="{{ .Permalink }}" class="post-nav-prev">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 18 9 12 15 6"/></svg>
+      <span>{{ .Title }}</span>
+    </a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .Permalink }}" class="post-nav-next">
+      <span>{{ .Title }}</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</article>
+
+{{ end }}

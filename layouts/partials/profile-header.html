@@ -1,0 +1,17 @@
+<header class="profile-header">
+  <div class="profile-header-inner">
+    <div class="profile-info">
+      <div class="profile-avatar" aria-hidden="true">
+        {{ with resources.Get "images/avatar.png" }}
+        <img src="{{ .RelPermalink }}" alt="avatar" width="72" height="72">
+        {{ else }}
+        <img src="/avatar.png" alt="avatar" width="72" height="72">
+        {{ end }}
+      </div>
+      <div class="profile-text">
+        <h1>{{ .Site.Params.author | default "lyyl80" }}</h1>
+        <p class="profile-tagline">{{ .Site.Params.tagline | default "写代码，也写生活。" }}</p>
+      </div>
+    </div>
+  </div>
+</header>
