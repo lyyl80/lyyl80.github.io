@@ -2,5 +2,4 @@ public/
 resources/
 .hugo_build.lock
 AGENTS.md
-.gitignore
 博客定制化指南.md
