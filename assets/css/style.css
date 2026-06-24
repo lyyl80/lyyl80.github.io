@@ -225,39 +225,40 @@ h4 {
 
 /* ----- Profile Header ----- */
 .profile-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding-bottom: var(--space-5);
+  padding: var(--space-7) var(--space-7) var(--space-6);
   border-bottom: 1px solid var(--color-border-subtle);
-  margin-bottom: var(--space-5);
   transition: border-color var(--transition-color);
 }
 
-.profile-header .avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  border: 2px solid var(--color-border);
-  object-fit: cover;
-  margin-bottom: var(--space-3);
-  transition: border-color var(--transition-color);
+.profile-header-inner {
+  max-width: var(--max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
 }
 
-.profile-header .name {
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.profile-text h1 {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-fg);
-  margin-bottom: var(--space-1);
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
   transition: color var(--transition-color);
 }
 
-.profile-header .tagline {
-  font-size: 0.8125rem;
+.profile-tagline {
+  font-size: 0.92rem;
   color: var(--color-fg-muted);
-  line-height: 1.5;
+  font-style: italic;
+  font-family: var(--font-display);
   transition: color var(--transition-color);
 }
 
@@ -395,25 +396,33 @@ h4 {
 .theme-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  color: var(--color-fg-secondary);
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border-subtle);
-  transition: background-color var(--transition-color), border-color var(--transition-color), color var(--transition-color);
+  gap: var(--space-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: var(--seed-radius);
+  color: var(--color-fg-muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  transition: color var(--transition-color), background var(--transition-color);
+  width: 100%;
 }
 
 .theme-toggle:hover {
-  color: var(--color-primary);
-  border-color: var(--color-border);
+  color: var(--color-fg);
+  background: color-mix(in srgb, var(--color-border) 30%, transparent);
 }
 
 .theme-toggle svg {
   width: 18px;
   height: 18px;
+  flex-shrink: 0;
 }
+
+.theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
 /* ----- Mobile Sidebar Toggle & Overlay ----- */
 .mobile-toggle {
