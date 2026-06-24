@@ -7,9 +7,9 @@ title = "lyyl80"
 
 [params]
   env = "production"
-  description = "写代码，也写生活。"
+  description = "保持热爱，一起进步。"
   author = "lyyl80"
-  tagline = "写代码，也写生活。"
+  tagline = "保持热爱，一起进步。"
   github = "lyyl80"
   email = ""
 
