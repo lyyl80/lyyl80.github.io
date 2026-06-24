@@ -33,15 +33,21 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Verify Hugo output
+        run: |
+          if [ ! -d ./public ] || [ -z "$(ls -A ./public 2>/dev/null)" ]; then
+            echo "ERROR: public/ missing or empty"
+            ls -la
+            exit 1
+          fi
+          du -sh ./public
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
