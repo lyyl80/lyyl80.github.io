@@ -531,6 +531,202 @@ h4 {
   transition: color var(--transition-color);
 }
 
+/* ----- Dashboard (Homepage) ----- */
+.dashboard {
+  margin-bottom: var(--space-7);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.dash-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--seed-radius);
+  padding: var(--space-4);
+  transition: background-color var(--transition-color), border-color var(--transition-color), box-shadow var(--transition-color);
+}
+
+.dash-card:hover {
+  box-shadow: 0 2px 12px var(--color-shadow);
+}
+
+/* Calendar */
+.dash-calendar {
+  text-align: center;
+}
+
+.cal-header {
+  margin-bottom: var(--space-3);
+}
+
+.cal-month {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: var(--space-1);
+}
+
+.cal-weekdays span {
+  font-size: 0.625rem;
+  color: var(--color-fg-muted);
+  text-align: center;
+  padding: 2px 0;
+}
+
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-days .day {
+  font-size: 0.6875rem;
+  text-align: center;
+  padding: 3px 0;
+  border-radius: 2px;
+  color: var(--color-fg-secondary);
+  transition: background-color var(--transition-color), color var(--transition-color);
+}
+
+.cal-days .day.empty {
+  visibility: hidden;
+}
+
+.cal-days .day.today {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+/* Stats */
+.dash-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.stat-card {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--seed-radius);
+  padding: var(--space-3) var(--space-4);
+  transition: background-color var(--transition-color), border-color var(--transition-color);
+}
+
+.stat-card:hover {
+  border-color: var(--color-border);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--color-fg-muted);
+}
+
+/* Latest Articles */
+.dash-latest {
+  min-width: 0;
+}
+
+.dash-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.dash-card-header h3 {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-fg);
+  margin: 0;
+}
+
+.dash-link {
+  font-size: 0.75rem;
+  color: var(--color-fg-muted);
+  transition: color var(--transition-color);
+}
+
+.dash-link:hover {
+  color: var(--color-primary);
+}
+
+.dash-article-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-article-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: background-color var(--transition-color);
+}
+
+.dash-article-item:last-child {
+  border-bottom: none;
+}
+
+.dash-article-item:hover .dash-article-title {
+  color: var(--color-primary);
+}
+
+.dash-article-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.dash-article-title {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--transition-color);
+}
+
+.dash-article-meta {
+  font-size: 0.6875rem;
+  color: var(--color-fg-muted);
+}
+
+.dash-arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--color-fg-muted);
+}
+
 /* ----- Article Cards Grid ----- */
 .article-list {
   display: flex;
@@ -1413,6 +1609,14 @@ h4 {
     padding: var(--space-6) var(--space-5) var(--space-8);
   }
 
+  .dashboard-grid {
+    grid-template-columns: 180px 1fr;
+  }
+
+  .dash-latest {
+    grid-column: 1 / -1;
+  }
+
   .article-card {
     grid-template-columns: 1fr 160px;
   }
@@ -1441,6 +1645,18 @@ h4 {
   .main-content {
     margin-left: 0;
     padding: var(--space-8) var(--space-4) var(--space-7);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-stats {
+    flex-direction: row;
+  }
+
+  .stat-card {
+    flex: 1;
   }
 
   .article-card {

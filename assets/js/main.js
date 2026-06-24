@@ -83,6 +83,44 @@
     if (firstLink) firstLink.classList.add('active');
   }
 
+  // ===== Calendar Widget =====
+  var calDays = document.getElementById('cal-days');
+  if (calDays) {
+    var today = parseInt(calDays.getAttribute('data-today'), 10);
+    var month = parseInt(calDays.getAttribute('data-month'), 10);
+    var year = parseInt(calDays.getAttribute('data-year'), 10);
+
+    // Calculate days in month and first weekday
+    var daysInMonth = new Date(year, month, 0).getDate();
+    var firstDay = new Date(year, month - 1, 1).getDay(); // 0=Sun
+    // Convert to Mon=0 format
+    firstDay = firstDay === 0 ? 6 : firstDay - 1;
+
+    // Fill empty cells before first day
+    for (var i = 0; i < firstDay; i++) {
+      var empty = document.createElement('span');
+      empty.className = 'day empty';
+      calDays.appendChild(empty);
+    }
+
+    // Fill days
+    for (var d = 1; d <= daysInMonth; d++) {
+      var span = document.createElement('span');
+      span.className = 'day' + (d === today ? ' today' : '');
+      span.textContent = d;
+      calDays.appendChild(span);
+    }
+  }
+
+  // Days running counter
+  var daysEl = document.getElementById('days-running');
+  if (daysEl) {
+    var startDate = new Date('2026-06-24');
+    var now = new Date();
+    var diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+    daysEl.textContent = diff < 0 ? 0 : diff;
+  }
+
   // ===== Search Page Logic =====
   var searchPageInput = document.getElementById('search-input');
   var searchResults = document.getElementById('search-results');

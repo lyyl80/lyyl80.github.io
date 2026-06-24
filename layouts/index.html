@@ -1,5 +1,63 @@
 {{ define "main" }}
 
+<!-- ===== DASHBOARD ===== -->
+<section class="dashboard view-active view-enter">
+  <div class="dashboard-grid">
+
+    <!-- Calendar Widget -->
+    <div class="dash-card dash-calendar">
+      <div class="cal-header">
+        <span class="cal-month">{{ now.Format "2006年1月" }}</span>
+      </div>
+      <div class="cal-weekdays">
+        <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+      </div>
+      <div class="cal-days" id="cal-days" data-today="{{ now.Format "2" }}" data-month="{{ now.Format "1" }}" data-year="{{ now.Format "2006" }}" data-first-weekday="{{ now.Format "Mon" }}"></div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="dash-stats">
+      <div class="stat-card">
+        <span class="stat-number">{{ len (where .Site.RegularPages "Section" "posts") }}</span>
+        <span class="stat-label">篇文章</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">{{ len .Site.Taxonomies.tags }}</span>
+        <span class="stat-label">个标签</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="days-running">--</span>
+        <span class="stat-label">天运行</span>
+      </div>
+    </div>
+
+    <!-- Latest Articles -->
+    <div class="dash-card dash-latest">
+      <div class="dash-card-header">
+        <h3>最新文章</h3>
+        <a href="/posts/" class="dash-link">查看全部 →</a>
+      </div>
+      <div class="dash-article-list">
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ range first 4 $posts }}
+        <a href="{{ .Permalink }}" class="dash-article-item">
+          <div class="dash-article-info">
+            <span class="dash-article-title">{{ .Title }}</span>
+            <span class="dash-article-meta">
+              {{ .Date.Format "01-02" }}
+              {{ with .Params.tags }} · {{ index . 0 }}{{ end }}
+            </span>
+          </div>
+          <svg class="dash-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== ARTICLE LIST ===== -->
 <section class="content-section view-active view-enter">
   <div class="section-title-row">
     <h2>文章</h2>
