@@ -88,9 +88,14 @@
   // ===== Calendar Widget =====
   var calDays = document.getElementById('cal-days');
   if (calDays) {
-    var today = parseInt(calDays.getAttribute('data-today'), 10);
-    var month = parseInt(calDays.getAttribute('data-month'), 10);
-    var year = parseInt(calDays.getAttribute('data-year'), 10);
+    var now = new Date();
+    var today = now.getDate();
+    var month = now.getMonth() + 1; // 1-12
+    var year = now.getFullYear();
+
+    // Update header text
+    var calMonth = document.querySelector('.cal-month');
+    if (calMonth) calMonth.textContent = year + '年' + month + '月';
 
     // Calculate days in month and first weekday
     var daysInMonth = new Date(year, month, 0).getDate();
