@@ -6,7 +6,7 @@ title: "计划"
 
 ### 阶段0：环境搭建与源码通读（2周）
 
-- [ ] Day 1-3：搭建 STM32 开发环境（STM32CubeIDE/VSCode+CMake、ST-Link 驱动、Wireshark+CAN 插件），Dummy V2 固件编译通过
+- [ ] Day 1-3：学习CAN总线通信和其基本原理,学习设计摆线减速器的完整过程
 - [ ] Day 4-6：通读 ref-controller 主控固件架构（main.cpp → dummy_robot → ctrl_step → 6dof_kinematic），画出系统架构图
 - [ ] Day 7-9：通读关节驱动固件（motor.cpp Tick20kHz 闭环控制、编码器校准、CAN 接收处理），理清帧到电机的数据流
 - [ ] Day 10-12：PD42S1 单轴硬件上手（接线供电、编码器校准、工作模式设置、面板控制电机正反转回零）
